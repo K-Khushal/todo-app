@@ -34,7 +34,7 @@ export default function UserNavigation({name, email, image}: {
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel>
-                    <div className="flex flex-col space-y-1">
+                    <div className="flex flex-col space-y-2">
                         <p className="text-sm font-medium leading-none">{name}</p>
                         <p className="text-xs leading-none text-muted-foreground">
                             {email}
