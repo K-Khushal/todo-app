@@ -20,6 +20,9 @@ import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server";
 import SubmitButton from "@/app/components/submit-button";
 
 async function getUserData(userId: string) {
+    if (!userId) {
+        throw new Error("User ID is required to fetch user data.");
+    }
     const data = await prisma.user.findUnique({
         where: {
             id: userId,
@@ -30,7 +33,6 @@ async function getUserData(userId: string) {
             colorScheme: true,
         },
     })
-
     return data;
 }
 
