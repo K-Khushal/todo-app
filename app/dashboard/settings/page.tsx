@@ -18,10 +18,14 @@ import {Label} from "@radix-ui/react-menu";
 import prisma from "@/app/lib/db";
 import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server";
 import SubmitButton from "@/app/components/submit-button";
+import { unstable_noStore as noStore } from "next/cache";
 
 async function getUserData(userId: string) {
+    noStore();
+    noStore();
     if (!userId) {
-        throw new Error("User ID is required to fetch user data.");
+        // return null or a default value when userId is undefined or null
+        return null;
     }
     const data = await prisma.user.findUnique({
         where: {
